@@ -14,11 +14,17 @@ The specific violation: ProfessorName functionally depends on ProfessorEmail. If
 #Task 2 — Decompose to 3NF
 
 | Table Name | Primary Key | Foreign Key | Non-key columns |
+
 | :--- | :--- | :--- | :--- | :--- |
+
 | Students | StudentID | None | StudentName |
+
 | Professors | ProfessorEmail | None | ProfessorName |
+
 | Courses | CourseID | ProfessorEmail | CourseName | 
+
 | Enrollments | StudentID, CourseID | StudentID, CourseID | Grade |
+
 Students: This table isolates student profile information. It ensures that a StudentName is only recorded once per student, preventing redundancy when they enroll in multiple classes.
 Professors: This table stores professor details. Since the raw data lacks a Professor ID, ProfessorEmail is used as a natural Primary Key because it is unique. This eliminates update anomalies; if a professor changes their name or email, it only needs to be updated in one single row here.
 Courses: This table stores course details and assigns the teaching professor. ProfessorEmail acts as a Foreign Key linking to the Professors table, establishing a one-to-many relationship (one professor can teach multiple courses, but each course instance is taught by one professor).
