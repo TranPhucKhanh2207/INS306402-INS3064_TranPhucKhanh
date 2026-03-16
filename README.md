@@ -10,6 +10,7 @@ Course rename (Update Anomaly): Similarly, if the university renames "Database S
 3. Is there any transitive dependency?
 Yes. A transitive dependency happens when a non-key column depends on another non-key column.
 The specific violation: ProfessorName functionally depends on ProfessorEmail. If you know the email, you know the professor's name. Because neither of these columns acts as the Primary Key for this specific table (the true Primary Key here would have to be the combination of StudentID and CourseID to determine the Grade), this creates a transitive dependency that violates the Third Normal Form (3NF).\
+
 #Task 2 — Decompose to 3NF
 | Table Name | Primary Key | Foreign Key | Non-key columns |
 | :--- | :--- | :--- | :--- | :--- |
